@@ -28,12 +28,11 @@ function App() {
   const [visitorsPerCountry, setVisitorsPerCountry] = useState<Map<string, number>>(new Map());
   
   const filterDataByDateRange = () => {
+    setVisitorsPerCountry(new Map());
+    setVisitorsPerDay(new Map());
+    setAdultVisitorsPerDay(new Map());
+    setChildrenVisitorsPerDay(new Map())
     if (startDate && endDate && endDate > startDate) {
-      setVisitorsPerCountry(new Map());
-      setVisitorsPerDay(new Map());
-      setAdultVisitorsPerDay(new Map());
-      setChildrenVisitorsPerDay(new Map())
-
       hotelBooking.filter((booking: BookingData) => {
         const bookingDate = new Date(
           parseInt(booking.arrival_date_year),
